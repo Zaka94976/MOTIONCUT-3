@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.slider {
+    
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+}
+.slide {
+    display: none; /* Hide all slides by default */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    display: block; /* Only display the active slide */
+    opacity: 1;
+}
+
+.thumbnails img.active {
+    opacity: 1;
+    border: 2px solid #000;
+}
+
+
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 600px) {
+    .caption {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+}
+/* Base styles remain the same */
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.thumbnails img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnails img.active {
+    opacity: 1;
+    border: 2px solid #000;
+}
+
+.thumbnails img:hover {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .caption {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+    
+    .thumbnails img {
+        width: 40px;
+        height: 30px;
+    }
+}
